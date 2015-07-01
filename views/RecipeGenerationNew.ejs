@@ -1,0 +1,168 @@
+<html>
+	<head>
+		<% include head.ejs%>
+		<script>
+			$(document).ready(function(){
+			 $('.sidebar-nav li a').click(function() {
+			 		window.location.href = $(this).attr('href');
+			 	});
+			 $("#menu-toggle").click(function(e) {
+    		    	e.preventDefault();
+        			$("#wrapper").toggleClass("toggled");
+    			});
+    		
+    		$('.btn-newRecipe').click(function(){
+    			
+    		});
+    		$('#tableId').dataTable({
+    			"bSort": false
+     		});
+		}); 
+		</script>
+		
+	</head>
+	<body>
+		<% include header.html%>
+		
+		<form name="recipeGenerationForm" method="get" action="/saveRecipe">
+		
+		<div id="wrapper">
+			<div id="sidebar-wrapper">
+				<% include menu.html %>
+			</div>
+			<div id="page-content-wrapper">
+				<a href="#menu-toggle"  class = "fa fa-arrow-circle-left fa-3x" id="menu-toggle"></a>
+				<div class="container-fluid">
+				
+					
+					
+					<div class="panel panel-default">
+						<div class="panel-heading">
+    						<h3 class="panel-title">Recipe Generation</h3>
+  						</div>
+  						<div class="panel-body">
+					 		<input type="hidden" id="selectedXmlFileName" name="selectedXmlFileName" />
+					 		<input type="hidden" id="overWriteRecipeXmlId" name="overWriteRecipeXmlId" />
+					 		<select id="selectedRecipeXmlId" name="selectedRecipeXmlId">
+								<option value="Select">Select</option>
+								<% for(var i=0; i<item.length; i++) {%>
+  									<option value=<%= item[i].ID %> ><%= item[i].FILENAME %></option>
+								<% } %>
+							</select>
+							<div class = "recipe-button">  
+								<a class="btn btn-primary" href="#" id = "LoadButton" role="button">Load</a>
+							</div>
+	
+						<a class="btn btn-primary btn-newRecipe" href="#" role="button" id="newButton">New</a>
+						<div class = "fileSubmit">
+<!--						<form name="recipeGenerationForm" method="get" action="/saveRecipe">	-->
+							<input style="width: 200px;" type="text" name="recipeFileName" id="recipeFileName" class="form-control" placeholder="File Name"/>
+							<input type="submit" class="btn btn-primary" id="recipeSubmit" value="Submit" onClick="createRecipeList()"/>
+			
+							</div>
+ 				 			</div><!-- panel-body-->
+							</div>	
+					<br><br><br>
+					<div class="panel panel-default" id="recipe-table" >
+						<div class="panel-body">
+							<div class = "table-panel-title">
+								<h4>Recipe Details: Please select the appropriate Check Boxes to generate Recipe.</h4>
+							</div>
+							<table id="tableId" class="row1" >
+	    					<thead>
+							   <tr bgColor=#cccccc>
+															<th height="34" align="center"><strong>Sno</strong></th>
+
+															<th align="center"><strong>Test Cases </strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong> FrontEnd</strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" />BackEnd<strong> 
+															</strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong>No Complaint Provided
+															</strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong>Audio/Alert </strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong>Battery </strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong>Bluetooth </strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong>Camera </strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong>Charging </strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /><strong>Display/Keypad </strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong>Memory Card </strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong>Power On/Off </strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong>SIM Card </strong></th>
+
+															<th align="center"><input type="checkbox"
+																class="allCB" /> <strong>Wifi </strong></th>
+
+															<th align="center"><strong>Delete </strong></th>
+														</tr>
+
+								</tr>
+								
+								
+							</thead>
+	    					<tbody id = "tableBodyID">
+			    				<% var testcaseNameLength =testCaseName.length%>
+								<%var name =testCaseName.split(",")%>
+								<% for(var i=0; i<name.length; i++) {%>
+								
+								<tr id="tableContents">
+									<td height="34" align="center"><%= i+1 %></td>
+									<td align="center"><%= name[i] %></td>
+									<td align="center"><input type="checkbox" class="FrontEndCB allCB" name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0"/> <strong> </strong></td>
+									<td align="center"><input type="checkbox" class="BackEndCB"  name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0"
+									class="allCB" /> <strong> </strong></td>
+									<td align="center"><input type="checkbox"  class="ComplaintCB" name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /> <strong> </strong></td>
+									<td align="center"><input type="checkbox"  class="AudioAlertCB" name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /> <strong> </strong></td>
+									<td align="center"><input type="checkbox"  class="BatteryCB"  name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /> <strong> </strong></td>
+									<td align="center"><input type="checkbox"  class="BluetoothCB"  name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /> <strong></strong></td>
+									<td align="center"><input type="checkbox"  class="CameraCB"  name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /> <strong> </strong></td>
+									<td align="center"><input type="checkbox"  class="ChargingCB"  name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /> <strong> </strong></td>
+									<td align="center"><input type="checkbox"  class="DisplayKeypadCB" name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /><strong> </strong></td>
+									<td align="center"><input type="checkbox"  class="MemoryCardCB"  name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /> <strong></strong></td>
+									<td align="center"><input type="checkbox"  class="PowerOnOffCB" name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /> <strong> </strong></td>
+									<td align="center"><input type="checkbox"  class="SimCardCB" name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /> <strong> </strong></td>
+									<td align="center"><input type="checkbox"   class="WifiCB"  name="CheckBoxRow<%= i %>" id="CheckBoxRow<%= i %>" value="1" data-unchecked="0" class="allCB" /> <strong></strong></td>
+									<td align="center"><input type="hidden" name="delete" class="deleteRecipe del" value="delete" ><span class="glyphicon glyphicon-trash">
+														<strong> </strong></td>
+							</tr>
+						<% } %> 											
+					<input type="hidden" name="TClength" id="tClengthID" value="" >	
+					
+				</tbody>
+				
+ 			</table>
+		</div>
+					</div> <!-- panel panel-default -->
+									
+                	
+				</div> <!--container-fluid-->
+				
+			</div> <!--page-content-wrapper -->
+		</div><!-- wrapper -->
+		<div id="generatedRecipeListContainer"></div>
+		</form>
+	</body>
+</html>

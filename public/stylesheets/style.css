@@ -1,0 +1,196 @@
+@import url(http://fonts.googleapis.com/css?family=Slabo+27px);
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Slabo 27px', serif;
+}
+
+#menu-toggle {
+	text-decoration: none;
+	width: 20px;
+}
+#sidebar-head{
+	text-decoration: none;
+	text-indent: 20px;
+	line-height: 50px;
+	font-size: 20px;
+	padding-left: 20px;
+	color: white;
+}
+.sidebar-nav li.active {
+	 background: rgba(255,255,255,0.2);
+}
+
+.top-header {
+  background: white;
+  height: 80px;
+  background-image: -webkit-linear-gradient(left, orange, orangered 25%, skyblue 25%, deepskyblue 50%, firebrick 50%, firebrick 75%, green 75%);
+  background-image: -moz-linear-gradient(left, orange, orangered 25%, skyblue 25%, deepskyblue 50%, firebrick 50%, firebrick 75%, green 75%);
+  background-image: -ms-linear-gradient(left, orange, orangered 25%, skyblue 25%, deepskyblue 50%, firebrick 50%, firebrick 75%, green 75%);
+  background-image: linear-gradient(to right, orange, orangered 25%, skyblue 25%, deepskyblue 50%, firebrick 50%, firebrick 75%, green 75%);
+  background-size: 100% 4px;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+}
+
+
+.top-header img {
+	margin-left: 30px;
+	margin-top: 5px;
+}
+
+
+#selectedRecipeXmlId {
+	width: 110px;
+	padding: 5px;
+	border-radius: 2px;
+}
+
+.top-header h4 {
+	position: absolute;
+	top: 1em;
+	font-size: 14px;
+	left: 8em;
+	font-style: italic;
+}
+
+.top-header .user_detail {
+	position: absolute;
+	top: 1.4em;
+	padding: 0px;
+	margin: 0px;	
+	font-size: 16px;
+	font-style: italic;
+	right: 15em;
+	cursor: pointer;
+}
+
+.top-header .user_detail:hover {
+	color: #59ABE3;
+}
+
+.top-header .logout {
+	position: absolute;
+	top: 1.4em;
+	right: 6em;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.top-header .logout span {
+	margin-left: 5px;
+}
+
+.top-header .logout:hover {
+	color: #D91E18;	
+}
+
+.panel {
+	position: absolute;
+	width: 90%;	
+	top: 1em;
+	left: 5em;
+}
+
+.recipe-button {
+	position: absolute;
+	top: 3.8em; 
+	left: 10em;
+}
+
+.fileSubmit {
+	position: absolute;
+	top: 3.8em;
+	left: 30em;
+}
+
+.table-wrapper {
+	position: absolute;
+	top: 20em;
+	left: 60em;
+}
+.form-control {
+	position: absolute;
+	top: -0.05em;
+	left: 5em;
+}
+
+#recipeFileSubmit {
+	position: absolute;
+	left: 20em;
+}
+.fileSubmit {
+	margin-left: 80px;
+}
+.fileSubmit a {
+ position: absolute;
+ left: 20em;
+}
+#newButton {
+	position: absolute;
+	top: 3.8em;
+	right: 30em;
+}
+#recipeSubmit {
+	position: absolute;
+	top: 0em;
+	left: 20em;
+}
+
+.panel h4 {
+	margin-left: 15px;
+}
+.panel-title {
+	font-weight: bold;
+}
+
+.row {
+	margin-top: 10px;
+}
+.row h4 {
+	font-weight: bold;
+}
+.row h4 span {
+	font-size: 14px;
+	color: red;
+	font-style: italic;
+	font-weight: lighter;
+}
+#recipe-table {
+	position : absolute;
+	top: 9em;
+}
+#tableId {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0px !important;
+	width: 100%;
+}
+
+#tableId tr th {
+	padding: 4px;
+	background: #6BB9F0;
+}
+
+#tableId tr.even {
+	background: #C5EFF7;
+}
+
+.table-panel-title {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 20px;
+}
+.table-panel-title h4 {
+	padding: 0px;
+	margin: 0px;
+	
+}
+#tableId_length select {
+	margin-left: 50px;
+}
+#tableId_filter label {
+	margin-right: 3000px;
+}

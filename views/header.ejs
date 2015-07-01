@@ -1,0 +1,32 @@
+<header class = "top-header">
+    <img src="/img/moto-log.png" alt = "Motorola Logo" width = "70px" height = "60px">
+    <h4>Making things smarter and life better</h4>
+    
+    <div class = "user_detail">
+    	Hi, 
+    	<!-- IF Loginned with local user -->
+    	 <% if (user.local.email) { %>
+    	 	<strong><%= user.local.email %></strong> 
+    	 <% } %>
+    	 
+    	 <!-- IF Loginned with Facebook user -->
+    	 <% if (user.facebook.token) { %>
+    	 	<strong><%= user.facebook.name %></strong>
+    	 <% } %>
+    	 
+    	 <!-- IF Loginned with Twitter user -->
+    	 <% if (user.twitter.token) { %>
+    	 	<strong><%= user.twitter.username %></strong>
+    	 <% } %>
+    	 
+    	 <!-- IF Loginned with Google user -->
+    	  <% if (user.google.token) { %>
+    	  	<strong><%= user.google.email %></strong> 
+    	  <% } %>
+    	  <span class = "glyphicon glyphicon-user"></span>
+    </div>  
+    <div class = "logout">
+    	<a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+    </div>
+ </header>
+    
